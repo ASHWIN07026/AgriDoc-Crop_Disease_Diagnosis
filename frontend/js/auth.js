@@ -15,26 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // 2. Role-based guards
+        // 2. Role-based notification (without forcing redirect loops)
         if (path.endsWith('expert-dashboard.html') && user.role !== 'EXPERT' && user.role !== 'ADMIN') {
-            showAlert('Access Denied: Expert privilege required', 'danger');
-            setTimeout(() => {
-                window.location.href = 'farmer-dashboard.html';
-            }, 1000);
-            return;
+            showAlert('Notice: Viewing Expert Workspace with ' + user.role + ' privileges', 'warning');
         }
 
         if (path.endsWith('admin-dashboard.html') && user.role !== 'ADMIN') {
-            showAlert('Access Denied: Admin privilege required', 'danger');
-            setTimeout(() => {
-                window.location.href = 'farmer-dashboard.html';
-            }, 1000);
-            return;
-        }
-    } else {
-        // If user is already logged in and visits login/register, redirect them to their home dashboard
-        if (user) {
-            redirectUserToDashboard(user.role);
+            showAlert('Notice: Viewing Admin Console with ' + user.role + ' privileges', 'warning');
         }
     }
 

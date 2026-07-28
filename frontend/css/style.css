@@ -52,6 +52,9 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Glassmorphism Panels and Cards */
@@ -170,6 +173,11 @@ header {
 }
 
 /* General Layout & Containers */
+main {
+    flex: 1;
+    width: 100%;
+}
+
 .container {
     max-width: 1200px;
     margin: 30px auto;
@@ -182,7 +190,7 @@ footer {
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
     padding: 20px;
-    margin-top: 50px;
+    margin-top: auto;
     border-top: 3px solid var(--primary-green);
 }
 

@@ -3,81 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriDoc - Crop Disease Diagnosis & Advisory</title>
+    <title>AgriDoc - AI Crop Disease Diagnosis & Agronomist Advisory</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/forms.css">
     <style>
-        /* Special styles for landing split view */
-        .landing-container {
+        .landing-hero {
             max-width: 1200px;
             margin: 0 auto;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 40px 20px;
+            padding: 40px 20px 60px 20px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 40px;
-            flex-wrap: wrap;
+            align-items: center;
         }
-        .landing-info {
-            flex: 1;
-            min-width: 320px;
-            color: var(--bg-dark);
-        }
-        .landing-info h1 {
+
+        .hero-text h1 {
             font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            font-weight: 700;
+            line-height: 1.25;
+            color: var(--bg-dark);
+            font-weight: 800;
+            margin-bottom: 18px;
         }
-        .landing-info h1 span {
+
+        .hero-text h1 span {
             color: var(--primary-green);
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .landing-info p {
+
+        .hero-text p {
             font-size: 1.1rem;
             color: #424242;
             margin-bottom: 30px;
+            line-height: 1.6;
         }
-        .landing-features {
+
+        .hero-features {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 16px;
+            margin-bottom: 25px;
         }
-        .feature-item {
+
+        .feature-box {
             background: white;
-            padding: 20px;
+            padding: 16px 20px;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
-            border-bottom: 3px solid var(--secondary-green);
+            border-left: 4px solid var(--secondary-green);
+            transition: transform var(--transition-speed);
         }
-        .feature-item h3 {
-            font-size: 1rem;
+
+        .feature-box:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .feature-box h4 {
+            font-size: 0.95rem;
             color: var(--primary-green);
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        .feature-item p {
-            font-size: 0.82rem;
-            margin: 0;
+
+        .feature-box p {
+            font-size: 0.8rem;
             color: #616161;
+            margin: 0;
+            line-height: 1.4;
         }
-        .login-card-wrapper {
-            flex: 1;
-            min-width: 320px;
+
+        .demo-login-options {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #ECEFF1;
+        }
+
+        .demo-login-options p {
+            font-size: 0.78rem;
+            color: #757575;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .demo-btn-group {
             display: flex;
+            gap: 8px;
             justify-content: center;
         }
-        @media (max-width: 768px) {
-            .landing-container {
-                flex-direction: column;
+
+        .demo-btn {
+            background: #F1F8E9;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            color: var(--primary-green);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .demo-btn:hover {
+            background: var(--primary-green);
+            color: white;
+            border-color: var(--primary-green);
+        }
+
+        @media (max-width: 900px) {
+            .landing-hero {
+                grid-template-columns: 1fr;
                 padding: 20px;
+                gap: 30px;
             }
-            .landing-info {
+
+            .hero-text h1 {
+                font-size: 2.1rem;
                 text-align: center;
             }
-            .landing-features {
+
+            .hero-text p {
+                text-align: center;
+            }
+
+            .hero-features {
                 grid-template-columns: 1fr;
             }
         }
@@ -85,50 +138,114 @@
 </head>
 <body>
 
-    <main class="auth-wrapper page-fade-in">
-        <div class="auth-card">
-            <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-                <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 1.8rem; font-weight: 700; color: var(--bg-dark);">
-                    <img src="logo.png" alt="AgriDoc Logo" style="height: 38px; width: auto; border-radius: 4px;">
-                    Agri<span style="color: var(--primary-green);">Doc</span>
-                </a>
-            </div>
-            <h2>Welcome Back</h2>
-            <p class="subtitle">Log in to manage your crops and reports</p>
-            
-            <form id="login-form">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" class="form-control" placeholder="Enter your username" required autocomplete="username">
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="AgriDoc Logo" style="height: 36px; width: auto; border-radius: 4px;">
+                Agri<span>Doc</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/forum.html">Community Forum</a></li>
+                <li><a href="pages/register.html" class="btn-primary" style="padding: 6px 16px; color: white;">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-fade-in">
+        <section class="landing-hero">
+            <!-- Left Side: Hero Info & Features -->
+            <div class="hero-text">
+                <h1>Smart <span>Crop Disease Diagnosis</span> & Expert Advisory</h1>
+                <p>
+                    Protect your farm harvest with instant AI-driven leaf symptom recognition, 
+                    tailored organic treatments, and direct consultation tickets with local agronomists.
+                </p>
+
+                <div class="hero-features">
+                    <div class="feature-box">
+                        <h4><span>🔬</span> AI Diagnosis</h4>
+                        <p>Instant disease prediction across 35+ crop varieties with severity ratings.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h4><span>🩺</span> Agronomist Help</h4>
+                        <p>Send direct tickets to experts for customized chemical & organic advice.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h4><span>🌱</span> Organic Remedies</h4>
+                        <p>Access step-by-step eco-friendly remedies and chemical dosage controls.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h4><span>💬</span> Farmer Forum</h4>
+                        <p>Connect with local farmers, share experiences, and receive region alerts.</p>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Enter your password" required autocomplete="current-password">
-                </div>
-                
-                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
-                    Sign In 🚀
-                </button>
-            </form>
-            
-            <div class="auth-footer">
-                Don't have an account? <a href="pages/register.html">Register here</a>
             </div>
-        </div>
+
+            <!-- Right Side: Login Card -->
+            <div style="display: flex; justify-content: center;">
+                <div class="auth-card" style="width: 100%; max-width: 420px; margin: 0;">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <h2 style="font-size: 1.6rem; color: var(--bg-dark); font-weight: 700;">Account Login</h2>
+                        <p class="subtitle" style="margin-top: 4px;">Sign in to access your farm reports & advisory</p>
+                    </div>
+                    
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" class="form-control" placeholder="Enter your username" required autocomplete="username">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="Enter your password" required autocomplete="current-password">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+                            Sign In 🚀
+                        </button>
+                    </form>
+
+                    <!-- Quick 1-Click Demo Login -->
+                    <div class="demo-login-options">
+                        <p>⚡ Quick Demo Accounts (1-Click Fill):</p>
+                        <div class="demo-btn-group">
+                            <button type="button" class="demo-btn" onclick="fillDemo('farmer', 'password123')">👨‍🌾 Farmer</button>
+                            <button type="button" class="demo-btn" onclick="fillDemo('expert', 'password123')">🩺 Expert</button>
+                            <button type="button" class="demo-btn" onclick="fillDemo('admin', 'admin123')">🛡️ Admin</button>
+                        </div>
+                    </div>
+                    
+                    <div class="auth-footer" style="margin-top: 20px; text-align: center; font-size: 0.88rem;">
+                        Don't have an account? <a href="pages/register.html" style="color: var(--primary-green); font-weight: 600;">Register here</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2026 AgriDoc Platform. Built with care for agricultural sustainability.</p>
+    </footer>
 
     <!-- Core APIs and authentication scripts -->
     <script src="js/api.js?v=2"></script>
     <script src="js/auth.js"></script>
     <script>
+        function fillDemo(username, password) {
+            document.getElementById('username').value = username;
+            document.getElementById('password').value = password;
+        }
+
         document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const usernameInput = document.getElementById('username').value.trim();
             const passwordInput = document.getElementById('password').value.trim();
             
-            // Client-side validation
             if (!usernameInput || !passwordInput) {
                 showAlert('Username and password are required', 'danger');
                 return;
