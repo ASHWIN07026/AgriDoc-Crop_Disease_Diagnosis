@@ -15,3 +15,8 @@ uploads/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Embedded database
+backend/data/
+**/data/
+

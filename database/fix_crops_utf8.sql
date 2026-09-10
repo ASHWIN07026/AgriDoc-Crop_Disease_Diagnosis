@@ -33,7 +33,7 @@ INSERT INTO crops (id, name, description, image_url) VALUES
 (20,'Wheat (கோதுமை)','Wheat grain grass, staple food crop.','https://images.pexels.com/photos/54084/wheat-grain-agriculture-seed-54084.jpeg?cs=srgb&dl=pexels-pixabay-54084.jpg&fm=jpg'),
 (21,'Brinjal (கத்தரிக்காய்)','Brinjal / Eggplant vegetable crop.',''),
 (22,'Bitter Gourd (பாகற்காய்)','Bitter gourd medicinal vegetable crop.',''),
-(23,'Bottle Gourd (சுரைக்காய்)','Bottle gourd vegetable crop.',''),
+(23,'Bottle Gourd (சுரைக்காய்)','Bottle gourd vegetable crop.','https://facts.net/wp-content/uploads/2023/11/10-bottle-gourd-nutrition-facts-1700401363.jpg'),
 (24,'Cardamom (ஏலக்காய்)','Cardamom queen of spices, grown in hill stations.',''),
 (25,'Cassava (மரவள்ளி)','Cassava / Tapioca root crop widely grown in Tamil Nadu.',''),
 (26,'Cauliflower (காலிஃப்ளவர்)','Cauliflower winter vegetable crop.',''),

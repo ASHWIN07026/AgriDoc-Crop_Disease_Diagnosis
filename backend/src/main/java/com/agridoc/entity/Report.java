@@ -30,13 +30,13 @@ public class Report {
     @Column(name = "symptoms_submitted", nullable = false, columnDefinition = "TEXT")
     private String symptomsSubmitted;
 
-    @Column(name = "image_path")
+    @Column(name = "image_path", length = 1000)
     private String imagePath; // Relative path to file (e.g. uploads/xxx.jpg)
 
     @Column(nullable = false, length = 20)
     private String status; // 'DIAGNOSED', 'UNDER_REVIEW', 'RESOLVED'
 
-    @Column(name = "created_at", insertable = false, updatable = false)
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     // Dynamic AI diagnosis fields from Google Gemini API
@@ -78,4 +78,11 @@ public class Report {
 
     @Column(name = "additional_expert_recommendations", columnDefinition = "TEXT")
     private String additionalExpertRecommendations;
+
+    @PrePersist
+    protected void onCreate() {
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
+    }
 }

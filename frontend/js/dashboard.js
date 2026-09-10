@@ -94,7 +94,7 @@ const DIRECT_CROP_IMAGES = {
     'wheat': 'https://images.pexels.com/photos/54084/wheat-grain-agriculture-seed-54084.jpeg?cs=srgb&dl=pexels-pixabay-54084.jpg&fm=jpg',
     'brinjal': 'https://tiimg.tistatic.com/fp/1/007/587/100-percent-natural-fresh-healthy-purple-brinjal-rich-in-many-nutrients-236.jpg',
     'bitter gourd': 'https://th.bing.com/th/id/R.7b9801acf6830bd088957631175f36ed?rik=sgfxV17oNDRAXA&riu=http%3a%2f%2fnaturebring.com%2fwp-content%2fuploads%2f2017%2f02%2fBitter-Gourd-nb-02-1024x768.jpg&ehk=ml%2fySGvYUH7FU9zOAXSzYgS3rJ%2f3%2flcqL6hivXHudk0%3d&risl=&pid=ImgRaw&r=0',
-    'bottle gourd': 'https://www.healthifyme.com/blog/wp-content/uploads/2023/06/shutterstock_1047605842-1.jpg',
+    'bottle gourd': 'https://facts.net/wp-content/uploads/2023/11/10-bottle-gourd-nutrition-facts-1700401363.jpg',
     'cardamom': 'https://www.allrecipes.com/thmb/k9Lz3cPTurD2mL5gliy7hF54SBY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1134929438-2000-6ed05c6782a74f82b7229fc0de6254ec.jpg',
     'cassava': 'https://images.pexels.com/photos/7543155/pexels-photo-7543155.jpeg?cs=srgb&dl=pexels-daniel-dan-47825192-7543155.jpg&fm=jpg',
     'cauliflower': 'https://www.thespruce.com/thmb/3xv-bplva31jK5D9fYL0_5c9UB0=/4696x0/filters:no_upscale():max_bytes(150000):strip_icc()/how-to-grow-cauliflower-1403494-hero-76cf5f524a564adabb1ac6adfa311482.jpg',

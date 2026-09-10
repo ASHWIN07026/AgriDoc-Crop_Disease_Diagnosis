@@ -40,9 +40,16 @@ public class Consultation {
     @Column(nullable = false, length = 20)
     private String status; // 'PENDING', 'ANSWERED'
 
-    @Column(name = "created_at", insertable = false, updatable = false)
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "replied_at")
     private LocalDateTime repliedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
+    }
 }
