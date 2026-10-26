@@ -1,5 +1,8 @@
 // Central API Service with Hybrid Backend & LocalStorage Fallback for AgriDoc
-const BASE_URL = 'http://localhost:8080';
+// BASE_URL is intentionally empty so API calls resolve to the same origin.
+// This works for both local development (served via Spring Boot) and production (Render).
+// For local dev with Live Server, set to 'http://localhost:8080' temporarily.
+const BASE_URL = '';
 
 // Helper to check if JWT token is expired client-side
 function isTokenExpired(token) {

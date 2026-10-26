@@ -297,7 +297,7 @@
             const photoBox = document.getElementById('ws-photo-box');
             if (ticket.report.imagePath) {
                 photoBox.style.display = 'block';
-                photoImg.src = ticket.report.imagePath.startsWith('data:') ? ticket.report.imagePath : `http://localhost:8080/${ticket.report.imagePath}`;
+                photoImg.src = ticket.report.imagePath.startsWith('data:') ? ticket.report.imagePath : `${window.location.origin}/${ticket.report.imagePath}`;
                 photoImg.style.display = 'block';
             } else {
                 photoBox.style.display = 'none';

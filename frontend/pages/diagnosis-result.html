@@ -361,7 +361,7 @@
             const photoDisplay = document.getElementById('result-photo-display');
             const photoHint = document.getElementById('photo-hint');
             if (report.imagePath) {
-                photoDisplay.src = report.imagePath.startsWith('data:') ? report.imagePath : `http://localhost:8080/${report.imagePath}`;
+                photoDisplay.src = report.imagePath.startsWith('data:') ? report.imagePath : `${window.location.origin}/${report.imagePath}`;
                 photoHint.textContent = report.imagePath.startsWith('data:') ? 'Uploaded Photo' : `Uploaded File: ${report.imagePath.substring(report.imagePath.lastIndexOf('/') + 1)}`;
             } else {
                 photoDisplay.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='10' fill='%23F1F8E9'/><text x='50%25' y='65%25' font-size='40' text-anchor='middle'>🍂</text></svg>";

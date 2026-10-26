@@ -199,7 +199,7 @@
                 const severityClass = `badge-severity-${(report.severityLevel || 'LOW').toLowerCase()}`;
                 const statusClass = `badge-status-${report.status.toLowerCase().replace('_', '-')}`;
                 const fallbackSvg = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='10' fill='%23F1F8E9'/><text x='50%25' y='65%25' font-size='40' text-anchor='middle'>🍂</text></svg>";
-                const imageSrc = report.imagePath ? (report.imagePath.startsWith('data:') ? report.imagePath : `http://localhost:8080/${report.imagePath}`) : fallbackSvg;
+                const imageSrc = report.imagePath ? (report.imagePath.startsWith('data:') ? report.imagePath : `${window.location.origin}/${report.imagePath}`) : fallbackSvg;
                 const displayCropName = formatBilingualCropName(report.cropName);
 
                 return `

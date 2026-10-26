@@ -1,0 +1,47 @@
+# ============================================================
+# .dockerignore - exclude files that don't belong in the
+# Docker build context. Keep frontend/ and backend/src/ intact.
+# ============================================================
+
+# Git internals
+.git
+.gitignore
+
+# IDE and editor files
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.hintrc
+
+# Maven build output (backend/src and pom.xml are still needed)
+backend/target/
+**/target/
+
+# Local database / H2 data files
+backend/data/
+**/data/
+
+# Uploaded files (runtime ephemeral data, not needed at build time)
+uploads/
+**/uploads/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+springboot_err.txt
+springboot_out.txt
+
+# Env files with secrets
+.env
+*.env
+
+# Node modules (if any)
+node_modules/
+
+# Readme, docs (optional - keep for smaller context)
+# README.md

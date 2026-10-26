@@ -39,8 +39,31 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(corsConfigurationSource))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/api/crops/**", "/api/reports/**", "/api/forum/**", "/uploads/**").permitAll()
+                // ---- Static frontend resources served by Spring Boot ----
+                .requestMatchers(
+                    "/",
+                    "/index.html",
+                    "/favicon.ico",
+                    "/css/**",
+                    "/js/**",
+                    "/pages/**",
+                    "/logo.png",
+                    "/images/**",
+                    "/*.png",
+                    "/*.ico",
+                    "/*.svg"
+                ).permitAll()
+                // ---- Public API endpoints ----
+                .requestMatchers(
+                    "/api/auth/**",
+                    "/api/crops/**",
+                    "/api/reports/**",
+                    "/api/forum/**",
+                    "/uploads/**"
+                ).permitAll()
+                // ---- Protected admin endpoints ----
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                // ---- All other requests require authentication ----
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session
