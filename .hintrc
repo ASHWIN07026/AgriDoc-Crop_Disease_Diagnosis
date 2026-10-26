@@ -1,16 +1,3 @@
 {
-  "extends": [
-    "development"
-  ],
-  "hints": {
-    "compat-api/css": [
-      "default",
-      {
-        "ignore": [
-          "backdrop-filter"
-        ]
-      }
-    ],
-    "no-inline-styles": "off"
-  }
+  "hints": {}
 }
