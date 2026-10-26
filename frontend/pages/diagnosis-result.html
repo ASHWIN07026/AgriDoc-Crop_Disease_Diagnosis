@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
             gap: 30px;
             margin-top: 20px;
         }
+
         .disease-detail-header {
             background-color: var(--bg-dark);
             color: white;
@@ -25,6 +27,7 @@
             box-shadow: var(--card-shadow);
             border: 1px solid rgba(76, 175, 80, 0.2);
         }
+
         .disease-detail-header::before {
             content: "🌱";
             position: absolute;
@@ -33,6 +36,7 @@
             font-size: 8rem;
             opacity: 0.1;
         }
+
         .result-photo {
             width: 100%;
             max-height: 300px;
@@ -41,20 +45,24 @@
             border: 1px solid rgba(76, 175, 80, 0.25);
             box-shadow: var(--card-shadow);
         }
+
         .info-row {
             display: flex;
             margin-bottom: 12px;
             border-bottom: 1px solid #ECEFF1;
             padding-bottom: 8px;
         }
+
         .info-label {
             font-weight: 600;
             width: 160px;
             color: var(--bg-dark);
         }
+
         .info-value {
             flex: 1;
         }
+
         .translation-block {
             margin-top: 4px;
             font-size: 0.85rem;
@@ -65,6 +73,7 @@
             padding-left: 10px;
             margin-bottom: 10px;
         }
+
         .section-sub-header {
             font-size: 0.98rem;
             font-weight: 700;
@@ -75,11 +84,13 @@
             align-items: center;
             gap: 6px;
         }
+
         .diagnostic-card {
             margin-bottom: 20px;
             padding: 20px;
             border-radius: var(--border-radius);
         }
+
         @media (max-width: 1024px) {
             .result-container {
                 grid-template-columns: 1fr;
@@ -87,11 +98,13 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <nav class="navbar">
-            <a href="farmer-dashboard.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <a href="farmer-dashboard.html" class="logo"
+                style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
                 <img src="../logo.png" alt="AgriDoc Logo" style="height: 34px; width: auto; border-radius: 4px;">
                 Agri<span>Doc</span>
             </a>
@@ -105,42 +118,58 @@
 
     <main class="container page-fade-in">
         <div style="margin-bottom: 25px;">
-            <a href="farmer-dashboard.html" style="text-decoration: none; color: var(--primary-green); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 15px;">
+            <a href="farmer-dashboard.html"
+                style="text-decoration: none; color: var(--primary-green); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 15px;">
                 ⬅ Back to Dashboard
             </a>
             <h1 style="color: var(--bg-dark); font-weight: 700;">🔬 Diagnostic Findings & Pathology Solution</h1>
-            <p style="color: #616161;">Review matched disease severity, root causes (எது நால நோய் வருது), recommended solutions (பண்ணினா சரியாகும்), and recovery duration (எவ்வளவு நாட்களில் சரியாகும்) in English & Tamil.</p>
-            
+            <p style="color: #616161;">Review matched disease severity, root causes (எது நால நோய் வருது), recommended
+                solutions (பண்ணினா சரியாகும்), and recovery duration (எவ்வளவு நாட்களில் சரியாகும்) in English & Tamil.
+            </p>
+
             <!-- Language Mode Selector -->
             <div style="display: flex; align-items: center; gap: 10px; margin-top: 15px; margin-bottom: 20px;">
-                <span style="font-weight: 600; font-size: 0.9rem; color: var(--bg-dark);">🌐 Display Language / மொழி தேர்வு:</span>
-                <button type="button" id="lang-btn-both" class="btn active-lang-btn" onclick="setLanguageMode('both')" style="padding: 6px 14px; font-size: 0.85rem; border-radius: 20px; border: 1px solid var(--primary-green); background: var(--primary-green); color: white; cursor: pointer;">Both (English & தமிழ்)</button>
-                <button type="button" id="lang-btn-en" class="btn" onclick="setLanguageMode('en')" style="padding: 6px 14px; font-size: 0.85rem; border-radius: 20px; border: 1px solid #CFD8DC; background: #ECEFF1; color: var(--text-dark); cursor: pointer;">English Only</button>
-                <button type="button" id="lang-btn-ta" class="btn" onclick="setLanguageMode('ta')" style="padding: 6px 14px; font-size: 0.85rem; border-radius: 20px; border: 1px solid #CFD8DC; background: #ECEFF1; color: var(--text-dark); cursor: pointer;">தமிழ் மட்டும்</button>
+                <span style="font-weight: 600; font-size: 0.9rem; color: var(--bg-dark);">🌐 Display Language / மொழி
+                    தேர்வு:</span>
+                <button type="button" id="lang-btn-both" class="btn active-lang-btn" onclick="setLanguageMode('both')"
+                    style="padding: 6px 14px; font-size: 0.85rem; border-radius: 20px; border: 1px solid var(--primary-green); background: var(--primary-green); color: white; cursor: pointer;">Both
+                    (English & தமிழ்)</button>
+                <button type="button" id="lang-btn-en" class="btn" onclick="setLanguageMode('en')"
+                    style="padding: 6px 14px; font-size: 0.85rem; border-radius: 20px; border: 1px solid #CFD8DC; background: #ECEFF1; color: var(--text-dark); cursor: pointer;">English
+                    Only</button>
+                <button type="button" id="lang-btn-ta" class="btn" onclick="setLanguageMode('ta')"
+                    style="padding: 6px 14px; font-size: 0.85rem; border-radius: 20px; border: 1px solid #CFD8DC; background: #ECEFF1; color: var(--text-dark); cursor: pointer;">தமிழ்
+                    மட்டும்</button>
             </div>
         </div>
 
         <div class="result-container">
-            
+
             <!-- Left Panel: Diagnosis details -->
             <div style="display: flex; flex-direction: column;">
-                
+
                 <!-- Main Header Title -->
                 <div class="disease-detail-header" id="disease-header">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
                         <span class="badge" id="predicted-severity-badge">Severity: Loading...</span>
-                        <span class="badge" id="predicted-confidence-badge" style="background-color: #E0F2F1; color: #00796B; border: 1px solid #B2DFDB;">Confidence: Loading...</span>
+                        <span class="badge" id="predicted-confidence-badge"
+                            style="background-color: #E0F2F1; color: #00796B; border: 1px solid #B2DFDB;">Confidence:
+                            Loading...</span>
                     </div>
-                    <h2 style="font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; font-family: 'Outfit';" id="predicted-disease-name">Analyzing symptoms...</h2>
+                    <h2 style="font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; font-family: 'Outfit';"
+                        id="predicted-disease-name">Analyzing symptoms...</h2>
                     <p style="margin: 0; opacity: 0.9; font-weight: 500;" id="predicted-crop-relation">Crop: ...</p>
                 </div>
 
                 <!-- 1. Pathology Details -->
                 <section class="panel diagnostic-card">
-                    <div class="panel-header" style="margin-bottom: 15px; border-bottom: 1px solid rgba(76, 175, 80, 0.12); padding-bottom: 10px;">
-                        <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--primary-green);"><span>🧬</span> Pathology Analysis</h2>
+                    <div class="panel-header"
+                        style="margin-bottom: 15px; border-bottom: 1px solid rgba(76, 175, 80, 0.12); padding-bottom: 10px;">
+                        <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--primary-green);"><span>🧬</span>
+                            Pathology Analysis</h2>
                     </div>
-                    
+
                     <div class="section-sub-header">Observed Symptoms / அறிகுறிகள்:</div>
                     <div id="ai-symptoms" style="margin-bottom: 15px;">...</div>
 
@@ -153,8 +182,10 @@
 
                 <!-- 2. Treatment & Actions -->
                 <section class="panel diagnostic-card">
-                    <div class="panel-header" style="margin-bottom: 15px; border-bottom: 1px solid rgba(76, 175, 80, 0.12); padding-bottom: 10px;">
-                        <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--primary-green);"><span>🩹</span> Treatment & Action Plan</h2>
+                    <div class="panel-header"
+                        style="margin-bottom: 15px; border-bottom: 1px solid rgba(76, 175, 80, 0.12); padding-bottom: 10px;">
+                        <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--primary-green);"><span>🩹</span>
+                            Treatment & Action Plan</h2>
                     </div>
 
                     <div class="section-sub-header">Immediate Actions / உடனடி நடவடிக்கைகள்:</div>
@@ -169,8 +200,10 @@
 
                 <!-- 3. Agronomy & Extra Advice -->
                 <section class="panel diagnostic-card">
-                    <div class="panel-header" style="margin-bottom: 15px; border-bottom: 1px solid rgba(76, 175, 80, 0.12); padding-bottom: 10px;">
-                        <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--primary-green);"><span>🌾</span> Agronomy & Advisory</h2>
+                    <div class="panel-header"
+                        style="margin-bottom: 15px; border-bottom: 1px solid rgba(76, 175, 80, 0.12); padding-bottom: 10px;">
+                        <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--primary-green);"><span>🌾</span>
+                            Agronomy & Advisory</h2>
                     </div>
 
                     <div class="section-sub-header">Fertilizer Suggestions / உர பரிந்துரைகள்:</div>
@@ -188,8 +221,10 @@
 
                 <!-- Submission Summary -->
                 <section class="panel diagnostic-card">
-                    <div class="panel-header" style="margin-bottom: 15px; border-bottom: 1px solid rgba(76, 175, 80, 0.12); padding-bottom: 10px;">
-                        <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--primary-green);"><span>📝</span> Submission Summary</h2>
+                    <div class="panel-header"
+                        style="margin-bottom: 15px; border-bottom: 1px solid rgba(76, 175, 80, 0.12); padding-bottom: 10px;">
+                        <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--primary-green);"><span>📝</span>
+                            Submission Summary</h2>
                     </div>
                     <div class="info-row">
                         <div class="info-label">Farmer Profile</div>
@@ -205,7 +240,8 @@
                     </div>
                     <div class="info-row" style="border: none;">
                         <div class="info-label">Status</div>
-                        <div class="info-value"><span class="badge badge-status-diagnosed" id="summary-status">DIAGNOSED</span></div>
+                        <div class="info-value"><span class="badge badge-status-diagnosed"
+                                id="summary-status">DIAGNOSED</span></div>
                     </div>
                 </section>
 
@@ -218,8 +254,11 @@
                     <div class="panel-header" style="margin-bottom: 15px;">
                         <h2><span>📸</span> Submission Photograph</h2>
                     </div>
-                    <img class="result-photo" id="result-photo-display" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='10' fill='%23F1F8E9'/><text x='50%25' y='65%25' font-size='40' text-anchor='middle'>🍂</text></svg>" alt="No image submitted" onerror="handleImageError(this, 'leaf')">
-                    <p class="hint" id="photo-hint" style="margin-top: 12px; font-size: 0.78rem; color: #757575;">No photo submitted with report.</p>
+                    <img class="result-photo" id="result-photo-display"
+                        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='10' fill='%23F1F8E9'/><text x='50%25' y='65%25' font-size='40' text-anchor='middle'>🍂</text></svg>"
+                        alt="No image submitted" onerror="handleImageError(this, 'leaf')">
+                    <p class="hint" id="photo-hint" style="margin-top: 12px; font-size: 0.78rem; color: #757575;">No
+                        photo submitted with report.</p>
                 </section>
 
                 <!-- Ask Expert Consultation -->
@@ -227,12 +266,18 @@
                     <div class="panel-header" style="margin-bottom: 15px;">
                         <h2><span>🩺</span> Consult Agronomist</h2>
                     </div>
-                    <p style="font-size: 0.82rem; color: #616161; margin-bottom: 15px;">If you want to verify this diagnosis or get localized advice, submit a question to our expert agronomists:</p>
-                    
+                    <p style="font-size: 0.82rem; color: #616161; margin-bottom: 15px;">If you want to verify this
+                        diagnosis or get localized advice, submit a question to our expert agronomists:</p>
+
                     <form id="consultation-form">
                         <div class="form-group" style="margin-bottom: 15px;">
-                            <label for="consult-question" style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 5px;">Your Question</label>
-                            <textarea id="consult-question" class="form-control" placeholder="Explain your problem here (e.g. My crop leaves are wilting rapidly in the morning. Is this related to Late Blight?)" required style="width: 100%; min-height: 100px; padding: 10px; border-radius: 8px; border: 1px solid #CFD8DC; font-family: inherit; font-size: 0.9rem; resize: vertical; outline: none;"></textarea>
+                            <label for="consult-question"
+                                style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 5px;">Your
+                                Question</label>
+                            <textarea id="consult-question" class="form-control"
+                                placeholder="Explain your problem here (e.g. My crop leaves are wilting rapidly in the morning. Is this related to Late Blight?)"
+                                required
+                                style="width: 100%; min-height: 100px; padding: 10px; border-radius: 8px; border: 1px solid #CFD8DC; font-family: inherit; font-size: 0.9rem; resize: vertical; outline: none;"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">
                             Submit Question to Expert ✉️
@@ -282,7 +327,7 @@
                 // Fetch farmer consultations to see if there is an existing ticket for this report
                 const consultations = await api.getFarmerConsultations();
                 const matchedTicket = consultations.find(c => c.reportId == reportId);
-                
+
                 if (matchedTicket) {
                     renderConsultationTicket(matchedTicket);
                 }
@@ -396,12 +441,12 @@
             // Mappings
             document.getElementById('predicted-disease-name').textContent = diseaseName;
             document.getElementById('predicted-crop-relation').innerHTML = `Crop: <strong>${cleanCropName}</strong>`;
-            
+
             // Format dynamic bilingual AI results
             document.getElementById('ai-symptoms').innerHTML = formatBilingualText(report.symptoms);
             document.getElementById('ai-root-cause').innerHTML = formatBilingualText(report.rootCause);
             document.getElementById('ai-recovery-time').innerHTML = formatBilingualText(report.expectedRecoveryTime);
-            
+
             document.getElementById('ai-immediate-actions').innerHTML = formatBilingualText(report.immediateActions);
             document.getElementById('ai-recommended-treatment').innerHTML = formatBilingualText(report.recommendedTreatment);
             document.getElementById('ai-prevention-methods').innerHTML = formatBilingualText(report.preventionMethods);
@@ -414,7 +459,7 @@
             document.getElementById('summary-farmer').textContent = report.farmerName || 'N/A';
             document.getElementById('summary-region').textContent = report.farmerRegion || 'N/A';
             document.getElementById('summary-symptoms').textContent = report.symptomsSubmitted || 'N/A';
-            
+
             const statusEl = document.getElementById('summary-status');
             statusEl.textContent = report.status;
             statusEl.className = `badge badge-status-${report.status.toLowerCase().replace('_', '-')}`;
@@ -422,10 +467,10 @@
 
         function renderConsultationTicket(ticket) {
             document.getElementById('ask-expert-panel').style.display = 'none';
-            
+
             const ticketPanel = document.getElementById('consultation-ticket-panel');
             const ticketContent = document.getElementById('consultation-ticket-content');
-            
+
             ticketPanel.style.display = 'block';
 
             const statusClass = ticket.status === 'PENDING' ? 'badge-status-pending' : 'badge-status-resolved';
@@ -479,14 +524,14 @@
                 const response = await api.createConsultation(reportId, questionText);
                 if (response && response.id) {
                     showAlert('Consultation request filed successfully!', 'success');
-                    
+
                     // Re-fetch consultations to update view
                     const consultations = await api.getFarmerConsultations();
                     const matchedTicket = consultations.find(c => c.reportId == reportId);
                     if (matchedTicket) {
                         renderConsultationTicket(matchedTicket);
                     }
-                    
+
                     // Update status in Summary
                     const statusEl = document.getElementById('summary-status');
                     statusEl.textContent = 'UNDER_REVIEW';
@@ -498,4 +543,5 @@
         });
     </script>
 </body>
+
 </html>
